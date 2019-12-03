@@ -3,6 +3,7 @@ import React from 'react';
 const style2 = {
   backgroundColor:"#CCEEFF",
 };
+
 class Table extends React.Component{
   render(){
     return  <div className="row" style={style2}>
@@ -40,7 +41,6 @@ class Table extends React.Component{
                   <td>{row.date}</td>
                 </tr>
               }
-
           )}
           </tbody>
         </table>
@@ -48,7 +48,4 @@ class Table extends React.Component{
     </div>
   }
 }
-
-
-
 export default Table;

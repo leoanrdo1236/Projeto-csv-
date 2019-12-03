@@ -5,14 +5,12 @@ import Papa from "papaparse";
 import Table from "./Table";
 
 class FileReader extends React.Component {
-
-
-
   constructor() {
     super();
     this.state = {
       csvfile: undefined
     };
+
     this.updateData = this.updateData.bind(this);
     fetch("data.csv")
   .then(function(response) {
@@ -22,21 +20,9 @@ class FileReader extends React.Component {
       Papa.parse(myText, {
         complete:  this.updateData,
         header: true,
-
       });
     });
-
   }
-
-
-
-
-  handleChange = event => {
-    this.setState({
-      csvfile: event.target.files[0]
-
-    });
-  };
 
   importCSV = (event) => {
     const { csvfile } = this.state;
@@ -44,7 +30,6 @@ class FileReader extends React.Component {
     Papa.parse(csvfile, {
       complete: this.updateData,
       header: true,
-
     });
   };
 
@@ -58,20 +43,7 @@ class FileReader extends React.Component {
     return (
         <div className="App">
           <h2>Importe CSV!</h2>
-          {/*<input*/}
-          {/*    className="csv-input"*/}
-          {/*    type="file"*/}
-          {/*    ref={input => {*/}
-          {/*      this.filesInput = input;*/}
-          {/*    }}*/}
-          {/*    name="file"*/}
-          {/*    placeholder={null}*/}
-          {/*    onChange={this.handleChange}*/}
-          {/*/>*/}
-          {/*<p/>*/}
-          {/*<button onClick={this.importCSV}> Carregar</button>*/}
     <Table data={this.state.data}/>
-
         </div>
     );
   }
