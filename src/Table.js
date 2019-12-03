@@ -1,13 +1,13 @@
 import React from 'react';
 
 const style2 = {
-  backgroundColor:"#CCEEFF",
+  backgroundColor: "#CCEEFF",
 };
 
-class Table extends React.Component{
-  render(){
-    return  <div className="row" style={style2}>
-      <div className="col" >
+class Table extends React.Component {
+  render() {
+    return <div className="row" style={style2}>
+      <div className="col">
         <table className="table">
           <thead>
           <tr>
@@ -25,9 +25,9 @@ class Table extends React.Component{
           </tr>
           </thead>
           <tbody>
-          {(this.props.data ||[]).map(
-              (row)=> {
-                return  <tr>
+          {(this.props.data || []).map(
+              (row) => {
+                return <tr>
                   <td>{row.seq}</td>
                   <td>{row["name/first"]}</td>
                   <td>{row["name/last"]}</td>
@@ -48,4 +48,5 @@ class Table extends React.Component{
     </div>
   }
 }
+
 export default Table;

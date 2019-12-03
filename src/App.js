@@ -10,23 +10,21 @@ class FileReader extends React.Component {
     this.state = {
       csvfile: undefined
     };
-
     this.updateData = this.updateData.bind(this);
     fetch("data.csv")
-  .then(function(response) {
+    .then(function (response) {
       return response.text();
     })
-    .then((myText)=> {
+    .then((myText) => {
       Papa.parse(myText, {
-        complete:  this.updateData,
+        complete: this.updateData,
         header: true,
       });
     });
   }
 
   importCSV = (event) => {
-    const { csvfile } = this.state;
-    // noinspection JSUnresolvedFunction
+    const {csvfile} = this.state;
     Papa.parse(csvfile, {
       complete: this.updateData,
       header: true,
@@ -35,7 +33,6 @@ class FileReader extends React.Component {
 
   updateData(result) {
     var data = result.data;
-    // console.log(data);
     this.setState({data})
   }
 
@@ -43,7 +40,7 @@ class FileReader extends React.Component {
     return (
         <div className="App">
           <h2>Importe CSV!</h2>
-    <Table data={this.state.data}/>
+          <Table data={this.state.data}/>
         </div>
     );
   }
