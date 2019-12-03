@@ -23,14 +23,6 @@ class FileReader extends React.Component {
     });
   }
 
-  importCSV = (event) => {
-    const {csvfile} = this.state;
-    Papa.parse(csvfile, {
-      complete: this.updateData,
-      header: true,
-    });
-  };
-
   updateData(result) {
     var data = result.data;
     this.setState({data})
